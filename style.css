@@ -1,0 +1,779 @@
+/********** Template CSS **********/
+:root {
+    --primary: #007FC0;
+    --light: #F0FBFC;
+    --dark: black;
+}
+.fw-medium {
+    font-weight: 600 !important;
+}
+.fw-semi-bold {
+    font-weight: 700 !important;
+}
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+html {
+    scroll-behavior: smooth;
+}
+section {
+    scroll-margin-top: 40px; /* Adjust this value to match or exceed your navbar height */
+}
+
+/*** Button ***/
+.btn.btn-primary {
+    background-color: var(--primary); /* Set background color to primary */
+    color: #FFFFFF; /* Text color should remain white */
+    border: none; /* Remove any border if present */
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--dark); /* Darker shade on hover */
+    color: #FFFFFF; /* Ensure the text stays white on hover */
+}
+
+.btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn.btn-secondary {
+    color: #FFFFFF;
+}
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+/*** Navbar ***/
+
+.logo-image {
+    max-height: 30px; /* Adjusted height to make it appear zoomed in */
+    transform: scale(10); /* Slightly enlarged */
+    margin-left: 90px;
+}
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+/* Set the default color of all navbar links to primary */
+.navbar-light .navbar-nav .nav-link {
+    margin-right: 30px;
+    padding: 25px 0;
+    color: var(--primary); /* Default color to primary */
+    font-size: 15px;
+    text-transform: uppercase;
+    outline: none;
+}
+
+/* On hover, change the color to dark */
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav  {
+    color: var(--dark); /* Darker shade on hover */
+}
+
+/* Ensure that active links are set to the primary color */
+.navbar-light .navbar-nav .nav-link.inactive {
+    color: var(--primary) !important; /* Make sure active links are primary */
+}
+
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem; /* Adjust size if needed */
+    text-decoration: none;
+}
+.social-icons a:hover {
+    opacity: 0.8; /* Optional hover effect */
+}
+
+@media (max-width: 991.98px) {
+    .navbar-light .navbar-nav .nav-link  {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    .navbar-light .navbar-nav {
+        border-top: 1px solid #EEEEEE;
+    }
+}
+.navbar-light .navbar-brand,
+.navbar-light a.btn {
+    height: 75px;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: var(--primary);
+    font-weight: 500;
+}
+.navbar-light.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+    .navbar .dropdown-menu.fade-down {
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+    }
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        transform: rotateX(0deg);
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 15px; /* Space between cards */
+    padding: 10px;
+}
+
+
+/***  carousel ***/
+#header-carousel .carousel-caption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+#header-carousel .carousel-control-prev,
+#header-carousel .carousel-control-next {
+    width: 10%;
+}
+
+#header-carousel .carousel-control-prev-icon,
+#header-carousel .carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+#header-carousel .carousel-item img {
+    height: 500px; /* Set your desired height */
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+}
+
+@media (max-width: 768px) {
+    #header-carousel .carousel-item {
+        position: relative;
+        min-height: 500px;
+    }
+    
+    #header-carousel .carousel-item img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+#header-carousel .carousel-indicators [data-bs-target] {
+    width: 60px;
+    height: 60px;
+    text-indent: 0;
+    margin-bottom: 15px;
+    border: 2px solid #FFFFFF;
+    border-radius: 60px;
+    overflow: hidden;
+}
+
+#header-carousel .carousel-indicators [data-bs-target] img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/carousel-1.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: var(--secondary);
+}
+
+.page-header .breadcrumb-item+.breadcrumb-item::before {
+    color: var(--light);
+}
+
+/*** Section Title ***/
+.section-title {
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    color: var(--primary); /* Set the title color to primary */
+}
+
+.section-title.text-primary {
+    color: var(--primary); /* Ensure text-primary sets the correct color */
+}
+
+.section-title::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 80px);
+    height: 2px;
+    top: 4px;
+    left: -40px;
+    background: var(--primary);
+    color: var(--primary);
+    z-index: -1;
+}
+
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: calc(100% + 120px);
+    height: 2px;
+    bottom: 5px;
+    left: -60px;
+    background: var(--primary);
+    color: var(--primary);
+    z-index: -1;
+}
+
+.section-title.text-start::before {
+    width: calc(100% + 40px);
+    left: 0;
+    color: var(--primary);
+}
+
+.section-title.text-start::after {
+    width: calc(100% + 60px);
+    left: 0;
+    color: var(--primary);
+}
+
+
+/*** core carousal ***/
+.services-container {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure all cards stay in a single row */
+    gap: 5px; /* Adjusted gap between the cards */
+    justify-content: space-between; /* Adjusts spacing between cards if needed */
+}
+
+/* Card styling */
+.services-card {
+    flex: 0 0 18%; /* Each card takes about 18% of the container's width */
+    min-width: 180px; /* Ensures cards don't get too small */
+}
+
+/* Optional: Adjust image and text size within the card */
+.services-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.services-card h4 {
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    justify-content: center;
+    align-items: flex-start; /* Align popup from the top, not center */
+    padding-top: 70px; /* Space for the navbar (assuming navbar height is 70px) */
+}
+
+/* Popup Content */
+.popup-content {
+    position: relative;
+    width: 1100px;
+    max-height: 80vh; /* Maximum height of the popup (80% of the viewport height) */
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex; /* Use flexbox for proper layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align items */
+    text-align: left; /* Ensure text aligns properly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px; /* Add margin on top to prevent overlap with close button */
+    overflow-y: auto; /* Add vertical scroll if content exceeds the height */
+}
+
+/* Limit the width of the popup */
+.popup-content img {
+    margin-bottom: 10px; /* Add spacing between image and text */
+    width: 150px; /* Adjust image width */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.popup-content h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #000000;
+}
+
+.popup-content p {
+    font-size: 16px;
+    color: #000000;
+}
+
+/* Close Button */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+}
+
+.popup-close:hover {
+    color: #333;
+}
+
+/*** material eqipment ***/
+.scrolling-carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px 0;
+}
+
+.scroll-wrapper {
+    display: flex;
+    animation: scroll-loop 30s linear infinite;
+}
+
+.service-item {
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 200px;
+    margin: 0 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: scale(1.05); /* Enlarge slightly on hover */
+}
+
+.service-item img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.service-item h4 {
+    font-size: 16px;
+    color: #000000;
+}
+
+/* Looping Animation */
+@keyframes scroll-loop {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-item {
+        width: 150px;
+    }
+
+    .service-item img {
+        height: 100px;
+    }
+
+    .service-item h4 {
+        font-size: 14px;
+    }
+}
+/*** services ***/
+
+/* Container Styling */
+/* Specific targeting to ensure all titles have the primary color */
+.service-col {
+    color: var(--primary); /* Ensure the primary color */
+}
+
+
+.services-container {
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+}
+
+.services-inner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Row Styling */
+.services-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Column Styling */
+.service-col {
+    flex: 0 0 calc(33.333% - 1rem);
+    box-sizing: border-box;
+}
+
+/* Card Styling */
+.service-card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Catalogue Styling */
+.service-content {
+    text-align: center;
+}
+
+/* Icon Styling */
+.service-icon {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Title Styling */
+.service-title {
+    font-size: 1.5rem; /* Larger font size */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--primary); /* Ensure contrast with the background */
+}
+
+/* Description Styling */
+.service-description {
+    font-size: 1rem;
+    color: #000000;
+}
+/* Style for Modal */
+/* Modal background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with transparency */
+    overflow: auto; /* Enable scrolling if necessary */
+}
+
+/* Modal Content (center the content) */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Center it vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* You can change the width to fit your content */
+    max-width: 600px; /* Max width for better responsiveness */
+    border-radius: 10px; /* Rounded corners for the modal */
+    text-align: center; /* Center text inside the modal */
+}
+
+/* Close button (top-right corner) */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styling the PDF links */
+.pdfs a {
+    display: block;
+    color: var(--primary);
+    margin: 10px 0;
+    text-decoration: none;
+}
+
+.pdfs a:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .service-col {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .service-col {
+        flex: 0 0 100%;
+    }
+}
+/*** Projects ***/
+.project {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 0;
+    height: 100%; /* Stretch cards uniformly */
+    display: flex; /* Align content vertically */
+    flex-direction: column;
+    justify-content: space-between;
+}
+.project .img {
+    width: 100%;
+    height: 240px; /* Fixed height for images */
+    display: block;
+    object-fit: cover; /* Ensures consistent image scaling */
+}
+.project .img .icon {
+    width: 70px;
+    height: 70px;
+    background: var(--primary);
+    margin: 0 auto;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.project .img .icon span {
+    color: #fff;
+}
+.project .text {
+    width: 90%;
+    background: #fff;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: -75px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 15px 46px -16px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Ensures text fills the remaining space */
+}
+.project .text .subheading {
+    background: rgba(0, 0, 0, 0.07);
+    padding: 5px 10px;
+    color: var(--primary);
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.project .text h3 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.project .text p {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+.project .text p span.fa {
+    color: var(--primary);
+}
+.project:hover .text {
+    background:var(--primary);
+}
+.project:hover .text .subheading {
+    color: #fff;
+}
+.project:hover .text h3 {
+    color: #fff;
+}
+.project:hover .text p {
+    color: rgba(255, 255, 255, 0.8);
+}
+.project:hover .text p span {
+    color: #fff;
+}
+.project:hover .img .icon {
+    opacity: 1;
+}
+
+.card img, .project .img {
+    height: 240px; /* Consistent height across cards */
+    object-fit: cover; /* Ensures consistent scaling */
+    width: 100%;
+}
+/*** contact us begins ***/
+/* Section background and spacing */
+#contact-us {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 3rem 0;
+}
+
+/* Contact Card */
+.contact-card {
+    background-color:var(--primary); /* Primary color background */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    height: 100%;
+}
+
+/* Hover effect for cards */
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Card text and links */
+.contact-card h4 {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.contact-card p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.contact-card a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+/* Google Map Styling */
+#contact-us iframe {
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/*** contact us ends  ***/
+
+/*** Footer ***/
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: #ffffff; /* Set text color to white */
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #ffffff; /* Set icon color to white */
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--primary); /* Retain hover color if needed */
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+    color: #ffffff; /* Set copyright text color to white */
+}
+
+.footer .copyright a {
+    color: #ffffff; /* Set link color to white */
+}
+
+.footer .copyright a:hover {
+    color: var(--primary); /* Retain hover color if needed */
+}

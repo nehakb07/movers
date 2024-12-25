@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Movers(India) Pvt Ltd</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="home.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <img src="img/logo.png" alt="Logo" class="logo-image me-2">
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="home.html" class="nav-item nav-link inactive">Home</a>
+            <a href="home.html" class="nav-item nav-link">About</a>
+            <a href="home.html" class="nav-item nav-link">Services</a>
+            <a href="home.html" class="nav-item nav-link">Products</a>
+            <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+        </div>
+        <div class="d-flex align-items-center me-3">
+            <a href="https://wa.me/919945923918" target="_blank" class="text-success me-3">
+                <i class="fab fa-whatsapp fa-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/movers-india-3753371ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-primary">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+        </div>
+        <a href="#contact-section" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Contact<i class="fa fa-arrow-right ms-3"></i></a>
+    </div>
+</nav>
+<!-- Navbar End -->
+
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Gallery layout */
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Grid for gallery (5 columns and 10 rows) */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columns */
+            grid-gap: 20px;
+            justify-items: center;
+            grid-template-rows: repeat(30, auto); /* 10 rows */
+        }
+
+        /* Card styling */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 200px; /* Max width for each card */
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer; /* Make it clickable */
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .modal .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal .close:hover,
+        .modal .close:focus {
+            color: #bbb;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="gallery">
+        <!-- Example card -->
+        <div class="card" onclick="openModal('img/Photo Gallery/100_2454.JPG')">
+            <img src="img/Photo Gallery/100_2454.JPG" alt="100_2454">
+            <p>100_2454</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/2012-03-17 15.23.00.jpg')">
+            <img src="img/Photo Gallery/2012-03-17 15.23.00.jpg" alt="2012-03-17 15.23.00">
+            <p>2012-03-17 15.23.00</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/2012-03-17 15.23.25.jpg')">
+            <img src="img/Photo Gallery/2012-03-17 15.23.25.jpg" alt="2012-03-17 15.23.25">
+            <p>2012-03-17 15.23.25</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/2012-03-17 15.24.18.jpg')">
+            <img src="img/Photo Gallery/2012-03-17 15.24.18.jpg" alt="2012-03-17 15.24.18">
+            <p>2012-03-17 15.24.18</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/2012-11-30 17.05.06.jpg')">
+            <img src="img/Photo Gallery/2012-11-30 17.05.06.jpg" alt="2012-11-30 17.05.06">
+            <p>2012-11-30 17.05.06</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/arm-plant.jpg')">
+            <img src="img/Photo Gallery/arm-plant.jpg" alt="arm-plant">
+            <p>arm-plant</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Bansal Cements.jpg')">
+            <img src="img/Photo Gallery/Bansal Cements.jpg" alt="Bansal Cements">
+            <p>Bansal Cements</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Batch Mill.jpg')">
+            <img src="img/Photo Gallery/Batch Mill.jpg" alt="Batch Mill">
+            <p>Batch Mill</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Batch Mill1.jpg')">
+            <img src="img/Photo Gallery/Batch Mill1.jpg" alt="Batch Mill1">
+            <p>Batch Mill1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/BM 1.jpg')">
+            <img src="img/Photo Gallery/BM 1.jpg" alt="BM 1">
+            <p>BM 1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/BM Chittoor GU.jpg')">
+            <img src="img/Photo Gallery/BM Chittoor GU.jpg" alt="BM Chittoor GU">
+            <p>BM Chittoor GU</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/BM in Paraguay.jpg')">
+            <img src="img/Photo Gallery/BM in Paraguay.jpg" alt="BM in Paraguay">
+            <p>BM in Paraguay</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/BM Manek.jpg')">
+            <img src="img/Photo Gallery/BM Manek.jpg" alt="BM Manek">
+            <p>BM Manek</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/BM Sandtech.jpg')">
+            <img src="img/Photo Gallery/BM Sandtech.jpg" alt="BM Sandtech">
+            <p>BM Sandtech</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/BM shell.jpg')">
+            <img src="img/Photo Gallery/BM shell.jpg" alt="BM shell">
+            <p>BM shell</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Burner 0001-01_B_cjto.general.jpg')">
+            <img src="img/Photo Gallery/Burner 0001-01_B_cjto.general.jpg" alt="Burner 0001-01_B_cjto.general">
+            <p>Burner 0001-01_B_cjto.general</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/chim.jpg')">
+            <img src="img/Photo Gallery/chim.jpg" alt="chim">
+            <p>chim</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/chimi1.jpg')">
+            <img src="img/Photo Gallery/chimi1.jpg" alt="chimi1">
+            <p>chimi1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/CIMG0291.JPG')">
+            <img src="img/Photo Gallery/CIMG0291.JPG" alt="CIMG0291">
+            <p>CIMG0291</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/CIMG0307.JPG')">
+            <img src="img/Photo Gallery/CIMG0307.JPG" alt="CIMG0307">
+            <p>CIMG0307</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/CIMG0314.JPG')">
+            <img src="img/Photo Gallery/CIMG0314.JPG" alt="CIMG0314">
+            <p>CIMG0314</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/CIMG0365.JPG')">
+            <img src="img/Photo Gallery/CIMG0365.JPG" alt="CIMG0365">
+            <p>CIMG0365</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/CIMG0380.JPG')">
+            <img src="img/Photo Gallery/CIMG0380.JPG" alt="CIMG0380">
+            <p>CIMG0380</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Classifier-full view.jpg')">
+            <img src="img/Photo Gallery/Classifier-full view.jpg" alt="Classifier-full view">
+            <p>Classifier-full view</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Clinker Roll Crusher.jpg')">
+            <img src="img/Photo Gallery/Clinker Roll Crusher.jpg" alt="Clinker Roll Crusher">
+            <p>Clinker Roll Crusher</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Clinker Roll Crusher1.jpg')">
+            <img src="img/Photo Gallery/Clinker Roll Crusher1.jpg" alt="Clinker Roll Crusher1">
+            <p>Clinker Roll Crusher1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Coal Crusher.jpg')">
+            <img src="img/Photo Gallery/Coal Crusher.jpg" alt="Coal Crusher">
+            <p>Coal Crusher</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Crusher.jpg')">
+            <img src="img/Photo Gallery/Crusher.jpg" alt="Crusher">
+            <p>Crusher</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Crusher1.JPG')">
+            <img src="img/Photo Gallery/Crusher1.JPG" alt="Crusher1">
+            <p>Crusher1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Double roll crusher.jpg')">
+            <img src="img/Photo Gallery/Double roll crusher.jpg" alt="Double roll crusher">
+            <p>Double roll crusher</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/DSC00156.JPG')">
+            <img src="img/Photo Gallery/DSC00156.JPG" alt="DSC00156">
+            <p>DSC00156</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/DSC00158.JPG')">
+            <img src="img/Photo Gallery/DSC00158.JPG" alt="DSC00158">
+            <p>DSC00158</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/DSC00172.JPG')">
+            <img src="img/Photo Gallery/DSC00172.JPG" alt="DSC00172">
+            <p>DSC00172</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Ehsan Cements.jpg')">
+            <img src="img/Photo Gallery/Ehsan Cements.jpg" alt="Ehsan Cements">
+            <p>Ehsan Cements</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Fine Print Ltd.jpg')">
+            <img src="img/Photo Gallery/Fine Print Ltd.jpg" alt="Fine Print Ltd">
+            <p>Fine Print Ltd</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Gasifier Shell.jpg')">
+            <img src="img/Photo Gallery/Gasifier Shell.jpg" alt="Gasifier Shell">
+            <p>Gasifier Shell</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Imagen 006.jpg')">
+            <img src="img/Photo Gallery/Imagen 006.jpg" alt="Imagen 006">
+            <p>Imagen 006</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG_0162.JPG')">
+            <img src="img/Photo Gallery/IMG_0162.JPG" alt="IMG_0162">
+            <p>IMG_0162</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG_1352.jpg')">
+            <img src="img/Photo Gallery/IMG_1352.jpg" alt="IMG_1352">
+            <p>IMG_1352</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG_4089.JPG')">
+            <img src="img/Photo Gallery/IMG_4089.JPG" alt="IMG_4089">
+            <p>IMG_4089</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG_4116.JPG')">
+            <img src="img/Photo Gallery/IMG_4116.JPG" alt="IMG_4116">
+            <p>IMG_4116</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG_4178.JPG')">
+            <img src="img/Photo Gallery/IMG_4178.JPG" alt="IMG_4178">
+            <p>IMG_4178</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG-20230123-WA0104.jpg')">
+            <img src="img/Photo Gallery/IMG-20230123-WA0104.jpg" alt="IMG-20230123-WA0104">
+            <p>IMG-20230123-WA0104</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG20240215095716.jpg')">
+            <img src="img/Photo Gallery/IMG20240215095716.jpg" alt="IMG20240215095716">
+            <p>IMG20240215095716</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG20240215095723.jpg')">
+            <img src="img/Photo Gallery/IMG20240215095723.jpg" alt="IMG20240215095723">
+            <p>IMG20240215095723</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG20240215102158.jpg')">
+            <img src="img/Photo Gallery/IMG20240215102158.jpg" alt="IMG20240215102158">
+            <p>IMG20240215102158</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG20240215102203.jpg')">
+            <img src="img/Photo Gallery/IMG20240215102203.jpg" alt="IMG20240215102203">
+            <p>IMG20240215102203</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG20240215102823.jpg')">
+            <img src="img/Photo Gallery/IMG20240215102823.jpg" alt="IMG20240215102823">
+            <p>IMG20240215102823</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/IMG20240215130158.jpg')">
+            <img src="img/Photo Gallery/IMG20240215130158.jpg" alt="IMG20240215130158">
+            <p>IMG20240215130158</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Impactor&RollCrusher.jpg')">
+            <img src="img/Photo Gallery/Impactor&RollCrusher.jpg" alt="Impactor&RollCrusher">
+            <p>Impactor&RollCrusher</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/ISD Cements.jpg')">
+            <img src="img/Photo Gallery/ISD Cements.jpg" alt="ISD Cements">
+            <p>ISD Cements</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/kiln.jpg')">
+            <img src="img/Photo Gallery/kiln.jpg" alt="kiln">
+            <p>kiln</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/kiln1.jpg')">
+            <img src="img/Photo Gallery/kiln1.jpg" alt="kiln1">
+            <p>kiln1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/kiln2.jpg')">
+            <img src="img/Photo Gallery/kiln2.jpg" alt="kiln2">
+            <p>kiln2</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/kiln3.jpg')">
+            <img src="img/Photo Gallery/kiln3.jpg" alt="kiln3">
+            <p>kiln3</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/KITS 1.jpeg')">
+            <img src="img/Photo Gallery/KITS 1.jpeg" alt="KITS 1">
+            <p>KITS 1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Lakshmanan Cements3.jpg')">
+            <img src="img/Photo Gallery/Lakshmanan Cements3.jpg" alt="Lakshmanan Cements3">
+            <p>Lakshmanan Cements3</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/LakshmananCement.jpg')">
+            <img src="img/Photo Gallery/LakshmananCement.jpg" alt="LakshmananCement">
+            <p>LakshmananCement</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Malampuza.jpg')">
+            <img src="img/Photo Gallery/Malampuza.jpg" alt="Malampuza">
+            <p>Malampuza</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Manek Mill.jpg')">
+            <img src="img/Photo Gallery/Manek Mill.jpg" alt="Manek Mill">
+            <p>Manek Mill</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Manek Plant View.jpg')">
+            <img src="img/Photo Gallery/Manek Plant View.jpg" alt="Manek Plant View">
+            <p>Manek Plant View</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Nirani Plant.JPG')">
+            <img src="img/Photo Gallery/Nirani Plant.JPG" alt="Nirani Plant">
+            <p>Nirani Plant</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Paraguay Plant.JPG')">
+            <img src="img/Photo Gallery/Paraguay Plant.JPG" alt="Paraguay Plant">
+            <p>Paraguay Plant</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/PICT0099.JPG')">
+            <img src="img/Photo Gallery/PICT0099.JPG" alt="PICT0099">
+            <p>PICT0099</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/roller crusher 2.jpg')">
+            <img src="img/Photo Gallery/roller crusher 2.jpg" alt="Roller Crusher 2">
+            <p>Roller Crusher 2</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Roller Crusher.jpg')">
+            <img src="img/Photo Gallery/Roller Crusher.jpg" alt="Roller Crusher">
+            <p>Roller Crusher</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Rotary Kiln1.jpg')">
+            <img src="img/Photo Gallery/Rotary Kiln1.jpg" alt="Rotary Kiln 1">
+            <p>Rotary Kiln 1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Rotary Kiln2.jpg')">
+            <img src="img/Photo Gallery/Rotary Kiln2.jpg" alt="Rotary Kiln 2">
+            <p>Rotary Kiln 2</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Rotary Kiln3.jpg')">
+            <img src="img/Photo Gallery/Rotary Kiln3.jpg" alt="Rotary Kiln 3">
+            <p>Rotary Kiln 3</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Rotary Kiln31.JPG')">
+            <img src="img/Photo Gallery/Rotary Kiln31.JPG" alt="Rotary Kiln 31">
+            <p>Rotary Kiln 31</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Rotary Vane.jpg')">
+            <img src="img/Photo Gallery/Rotary Vane.jpg" alt="Rotary Vane">
+            <p>Rotary Vane</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Sandtech Plant View.jpg')">
+            <img src="img/Photo Gallery/Sandtech Plant View.jpg" alt="Sandtech Plant View">
+            <p>Sandtech Plant View</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Sandtech1.jpg')">
+            <img src="img/Photo Gallery/Sandtech1.jpg" alt="Sandtech 1">
+            <p>Sandtech 1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Sandtech3.jpg')">
+            <img src="img/Photo Gallery/Sandtech3.jpg" alt="Sandtech 3">
+            <p>Sandtech 3</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Screw conveyor.png')">
+            <img src="img/Photo Gallery/Screw conveyor.png" alt="Screw Conveyor">
+            <p>Screw Conveyor</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/shayona cement  africa high res.jpg')">
+            <img src="img/Photo Gallery/shayona cement  africa high res.jpg" alt="Shayona Cement Africa High Res">
+            <p>Shayona Cement Africa High Res</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/shayona cement  africa high res1.jpg')">
+            <img src="img/Photo Gallery/shayona cement  africa high res1.jpg" alt="Shayona Cement Africa High Res 1">
+            <p>Shayona Cement Africa High Res 1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/stic3.jpg')">
+            <img src="img/Photo Gallery/stic3.jpg" alt="Stic 3">
+            <p>Stic 3</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/TD Gate.jpg')">
+            <img src="img/Photo Gallery/TD Gate.jpg" alt="TD Gate">
+            <p>TD Gate</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Tech SA Plant View 1.png')">
+            <img src="img/Photo Gallery/Tech SA Plant View 1.png" alt="Tech SA Plant View 1">
+            <p>Tech SA Plant View 1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Top Coater.jpg')">
+            <img src="img/Photo Gallery/Top Coater.jpg" alt="Top Coater">
+            <p>Top Coater</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/Twin shaft Screw conveyor.png')">
+            <img src="img/Photo Gallery/Twin shaft Screw conveyor.png" alt="Twin Shaft Screw Conveyor">
+            <p>Twin Shaft Screw Conveyor</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/View of grinding plant at Bdesh.jpg')">
+            <img src="img/Photo Gallery/View of grinding plant at Bdesh.jpg" alt="View of Grinding Plant at Bdesh">
+            <p>View of Grinding Plant at Bdesh</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/VSK GB.jpg')">
+            <img src="img/Photo Gallery/VSK GB.jpg" alt="VSK GB">
+            <p>VSK GB</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/VSK GB1.JPG')">
+            <img src="img/Photo Gallery/VSK GB1.JPG" alt="VSK GB 1">
+            <p>VSK GB 1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/w2e (65).JPG')">
+            <img src="img/Photo Gallery/w2e (65).JPG" alt="W2E (65)">
+            <p>W2E (65)</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/W2E 1.jpg')">
+            <img src="img/Photo Gallery/W2E 1.jpg" alt="W2E 1">
+            <p>W2E 1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/W2E 2.jpg')">
+            <img src="img/Photo Gallery/W2E 2.jpg" alt="W2E 2">
+            <p>W2E 2</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/W2E 11.JPG')">
+            <img src="img/Photo Gallery/W2E 11.JPG" alt="W2E 11">
+            <p>W2E 11</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/W2E 11.JPG')">
+            <img src="img\Photo Gallery\W2E 21.JPG" alt="W2E 11">
+            <p>W2E 21</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/W2E 11.JPG')">
+            <img src="img\Photo Gallery\W2E plant 1.jpg" alt="W2E 11">
+            <p>W2E plant 1</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/W2E 11.JPG')">
+            <img src="img\Photo Gallery\W2E plant 2.jpg" alt="W2E 11">
+            <p>W2E plant 2</p>
+        </div>
+        <div class="card" onclick="openModal('img/Photo Gallery/W2E 11.JPG')">
+            <img src="img\Photo Gallery\W2eTeam.jpg" alt="W2E 11">
+            <p>W2eTeam</p>
+        </div>
+    
+    <!-- Add more cards here -->
+</div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Zoomed Image">
+</div>
+
+     <!-- Footer Start -->
+     <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <!-- Address Column -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Address</h5>
+                    <p class="mb-2">
+                        <i class="fa fa-map-marker-alt me-3"></i>Basava Bhavan, High Grounds,<br>
+                        Bangalore - 560 001. INDIA.
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-phone-alt me-3"></i>
+                        <a href="tel:+918022267503" class="text-light">+91-80-2226 7503</a> / 
+                        <a href="tel:+918022264498" class="text-light">+91-80-2226 4498</a>
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-envelope me-3"></i>
+                        <a href="mailto:movers@movers-india.in" class="text-light">movers@movers-india.in</a><br>
+                        <a href="mailto:moversindia@gmail.com" class="text-light">moversindia@gmail.com</a>
+                    </p>
+                    <div class="my-3">
+                        <!-- Google Map Embed -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.786966700701!2d77.58389067199322!3d12.985473181938586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae166bbc2d87f1%3A0x63bee428914a89a4!2sMovers%20(India)%20Private%20Ltd!5e0!3m2!1sen!2sin!4v1733635633557!5m2!1sen!2sin" 
+                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <!-- South America Contact Column -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4"> Our South America Contact:</h5>
+                    <p class="mb-2">
+                        <i class="fa fa-user me-3"></i>Mr. Hirokazu Furuya
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-map-marker-alt me-3"></i>South America Representative:
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-phone-alt me-3"></i>
+                        <a href="tel:+551533183470" class="text-light">+55-15-33183470</a> / 
+                        <a href="tel:+5515991423170" class="text-light">+55 (15) 991423170</a>
+                    </p>
+                </div>
+                <!-- Quick Links Column -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Quick Links</h5>
+                    <a class="btn btn-link text-light" href="#about-section">About Us</a>
+                    <a class="btn btn-link text-light" href="#contact-section">Contact Us</a>
+                    <a class="btn btn-link text-light" href="#services-section">Services</a>
+                    <a class="btn btn-link text-light" href="#products-section">Products</a>
+                    <a class="btn btn-link text-light" href="">Terms & Condition</a>
+                    <a class="btn btn-link text-light open-brochure-modal" href="#">E-catalogue</a>
+                </div>
+                <!-- Gallery Column -->
+                <div class="col-lg-3 col-md-6">
+                    <nav>
+    <a href="gallery.html">Gallery</a>
+</nav>
+
+                    <div class="row g-2">
+                        <div class="col-4">
+                            <img class="img-fluid rounded" src="img\Photo Gallery\arm-plant.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded" src="img\Photo Gallery\Bansal Cements.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded" src="img\Photo Gallery\Batch Mill.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded" src="img\Photo Gallery\BM 1.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded" src="img\Photo Gallery\BM Chittoor GU.jpg" alt="Image">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded" src="img\Photo Gallery\BM Manek.jpg" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">Copyright of Movers (India) Private Limited, 2021</a> <br>An ISO 9001:2015 Certified Company
+                    </div>
+        <!--            <div class="col-md-6 text-center text-md-end">
+                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                        <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    </div>  -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

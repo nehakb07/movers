@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movers India Pvt Ltd</title>
+    <style>
+        .landing-container {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Ensure full viewport height */
+            overflow: hidden;
+        }
+        .landing-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            z-index: 1;
+        }
+        .landing-text {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <img src="img/Landing Page/Cement Plant First Page (HD).png" alt="Landing Image" class="landing-image">
+        <div class="landing-text">Movers India Pvt Ltd</div>
+    </div>
+
+    <script>
+        function redirectToHome() {
+            window.location.href = 'home.html';
+        }
+        setTimeout(redirectToHome, 5000);
+        document.addEventListener('click', redirectToHome);
+    </script>
+</body>
+</html>
